@@ -15,45 +15,44 @@ wrong label is not graded.
 
 **Issue link**
 
-https://us06web.zoom.us/j/81334587556?pwd=A74uYVCm2MYe4yT15QlaNrcSu12J0T.1 
-
 https://github.com/codepath/pathreview-ai301-fa26-s1/issues/68 
 
-https://github.com/codepath/pathreview-ai301-fa26-s1/issues/64)
+https://github.com/codepath/pathreview-ai301-fa26-s1/issues/64 
+
+https://github.com/codepath/pathreview-ai301-fa26-s1/issues/69
 
 **Verdict output**
 
 Ranked read-out
 
   1. Issue #64 — "Relevance scorer 'partial overlap' test fixture actually has full query overlap" — accepted
-  Smallest, most self-contained fix of the two: one file, one broken assertion, explicit repro command (pytest 
-  tests/unit/test_relevance_scorer.py -q → assert 1.0 < 0.9 fails), no ambiguity about what "done" looks like.
+  Smallest footprint: one file, one broken assertion, explicit repro command, no external library involved.
 
-  2. Issue #68 — "Keyword search raises ZeroDivisionError when the index is empty" — accepted
-  Also bounded and well-specified (2 named files, effort estimate, names the exact xfail marker to remove), but touches
-  a library boundary (rank-bm25) and spans two files, slightly more surface than #64.
+  2. Issue #69 — "Output parser crashes on a top-level JSON array fallback" — accepted
+  Bounded, single-cause bug entirely in the project's own code (output_parser.py calls .items() on a list) — the failure
+  is directly visible in the diff you'd write, no need to reason about a third-party library's internals.
 
-  Caveat on ranking: scope.md's fit-profile section is still the unfilled placeholder, so I have no actual personal-fit
-  signal (your languages/goals/avoid-list) to rank against. The order above is a neutral "smaller, more self-contained
-  fix first" tiebreak, not a real fit-based ranking. Fill in the fit profile if you want a ranking that reflects your
-  background rather than just issue size.
+  3. Issue #68 — "Keyword search raises ZeroDivisionError when the index is empty" — accepted
+  Same shape as #69 (2 files, 2–4h estimate, xfail marker to drop) but the root cause lives inside rank-bm25's
+  BM25Okapi, a third-party library boundary — slightly more indirection to trace than #69.
 
-  No rejected candidates — both cleared all four required checks. (The Zoom link was dropped; it's not a GitHub issue
-  and isn't gradable.)
+  Ranking caveat, unchanged from last run: scope.md's fit-profile section is still the unfilled placeholder, so this
+  order is a neutral "smaller / more self-contained first" tiebreak, not a real fit-based ranking against your
+  background.
 
-  Per-check evidence:
-  - Maintainer Active (repo-wide, applies to both): collaborator Aburke225 pushed 5 commits ending 2026-09-16T21:42Z and
-    commented/closed other issues as recently as 2026-09-16T21:50Z (today is 2026-09-17) — none bot-only.
-  - AI Contribution Allowed (repo-wide, applies to both): docs/CONTRIBUTING.md (full text read) says nothing about
-    AI-generated contributions; no AGENTS.md/AI_POLICY.md found (404) → silence passes.
-  - Uncontested — #68: 0 comments, no assignee, GitHub search for PRs referencing #68 in this repo = 0 results. One
-    "referenced" timeline event points to a commit in yulijasso/ai301-coursework (a different student's personal
-    coursework repo) — checked its message: it's that student's own selection.md recording their run of this same skill
-    exercise, not a PR or fix against this repo. Not a rubric-named signal (assignee/PR/comment) and the Path Review
-    house rule says other students eyeing the same issue doesn't block anyway. #64: 0 comments, no assignee, no timeline
-    events beyond labels, 0 PR search results.
-  - Scope Fits — #68: single bounded bug (index() raises ZeroDivisionError on empty corpus), 2 named files, xfail marker
-    H-01 to remove, 2–4h estimate. #64: single bounded test-fixture bug, 1 file, explicit repro command.
+  No rejected candidates — all three clear every required check.
+
+  Per-check evidence (repo-wide checks — Maintainer Active, AI Contribution Allowed — apply identically to all three):
+  - Maintainer Active: collaborator Aburke225 pushed 5 commits ending 2026-09-16T21:42Z, closed/commented on other
+    issues as recently as 2026-09-16T21:50Z; non-bot.
+  - AI Contribution Allowed: docs/CONTRIBUTING.md (full text) has no AI-use language; no AGENTS.md/AI_POLICY.md found
+    (404) → silence passes.
+  - Uncontested — #68: 0 comments, no assignee, 0 PR search hits; one cross-repo "referenced" event points to a
+    different student's own selection.md notes in their personal coursework repo, not a claim in this repo — doesn't
+    block per house rule either way. #64: 0 comments, no assignee, no timeline events beyond labels, 0 PR hits. #69:
+    same as #64 — clean. 
+  - Scope Fits — #68: single bug in KeywordSearcher.index(), 2 files, xfail H-01, 2–4h. #64: single test-fixture fix, 1
+    file, explicit repro. #69: single bug in output_parser.py (.items() on a list), 2 files, xfail H-02, 2–4h.
 ```
   [
     {
@@ -65,6 +64,20 @@ Ranked read-out
   1.0 < 0.9` fails"},
         {"name": "Uncontested", "grade": "pass", "evidence": "0 comments, no assignee, no timeline events beyond labels,
   0 PRs reference #64"},
+        {"name": "AI Contribution Allowed", "grade": "pass", "evidence": "docs/CONTRIBUTING.md has no AI-use language; 
+  no AGENTS.md/AI_POLICY.md found"}
+      ],
+      "verdict": "accept"
+    },
+    {
+      "item": "https://github.com/codepath/pathreview-ai301-fa26-s1/issues/69",
+      "checks": [
+        {"name": "Maintainer Active", "grade": "pass", "evidence": "Collaborator Aburke225 pushed/commented/closed 
+  issues as recently as 2026-09-16T21:50Z, non-bot"},
+        {"name": "Scope Fits", "grade": "pass", "evidence": "Single bug: output_parser.py calls .items() on a list, 2 
+  named files, xfail marker H-02, 2-4h estimate"},
+        {"name": "Uncontested", "grade": "pass", "evidence": "0 comments, no assignee, no timeline events beyond labels,
+  0 PRs reference #69"},
         {"name": "AI Contribution Allowed", "grade": "pass", "evidence": "docs/CONTRIBUTING.md has no AI-use language; 
   no AGENTS.md/AI_POLICY.md found"}
       ],
