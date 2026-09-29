@@ -29,8 +29,6 @@ The issue reports that `test_query_with_partial_overlap` in `tests/unit/test_rel
 
 My next step is to set up the repo from a fresh clone following the README, run that command, and confirm whether I see the same failure. I'll post a reproduction report here with my environment, the exact steps, and the output I get, including if I can't reproduce it.
 
-I'm using an AI assistant to help me organize my notes and comments; I'll run every step myself and only report what I observe.
-
 ### Reproduction comment
 
 https://github.com/codepath/pathreview-ai301-fa26-s1/issues/64#issuecomment-5882177252
