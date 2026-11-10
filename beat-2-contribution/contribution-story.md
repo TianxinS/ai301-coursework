@@ -1,4 +1,4 @@
-# Contribution: [Issue Title]
+# Contribution: Add test coverage for rafter brief
 
 Path: `beat-2-contribution/contribution-story.md`
 
@@ -8,10 +8,9 @@ format criteria grade exactly that. Your course repo link is the whole submissio
 files and no evidence uploads are part of Assignment 5.
 
 **Contribution Number:** [1]
-**Student:** [Student name]
-**GitHub Username:** [your GitHub username, exactly as it appears on your profile - no @, no
-profile URL. Your comments upstream are identified by this name.]
-**Issue:** [GitHub issue link]
+**Student:** [Tianxin Song]
+**GitHub Username:** [TianxinS]
+**Issue:** https://github.com/Raftersecurity/rafter-cli/issues/28
 **Pull Request:** [GitHub PR link, once opened]
 
 One repository, built across units 5 to 8, telling the whole story of your real
@@ -57,8 +56,7 @@ one in the week it belongs to.
 
 **Unit 5: [one line on the tool work]**
 
-[2-4 sentences: what you built (the scout, your strategy), what broke
-or fell short, what changed because of it.]
+I wrote an issue-scout search strategy with four gh search issues queries aimed at agent-related Python projects, plus ranking filters that drop assigned, stale, and feature-sized issues and put the easiest, least-discussed issues first. My first scan accepted an issue written in Indonesian and a five-step Tracekit task that needed a live Open Interpreter session, and one query returned zero results because an unquoted phrase broke its OR expression. I added English Language and Easy Environment Setup checks to my rubric, quoted the broken query, and added title filters for "call for contributors" and tracking posts. When I graded my three picks from the Issue Selection site, the new setup check rejected two of them (a multi-container Docker setup and an Agda/Nix project), and the grader flagged that my Uncontested check doesn't say whether "can I be assigned?" requests count as claims.
 
 **Unit 6: [one line on the tool work]**
 
